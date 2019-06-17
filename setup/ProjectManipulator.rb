@@ -27,12 +27,12 @@ module Pod
         "CPD" => @prefix
       }
       replace_internal_project_settings
+      rename_classes_files
 
       @project = Xcodeproj::Project.open(@xcodeproj_path)
       add_podspec_metadata
       remove_demo_project if @remove_demo_target
       @project.save
-      rename_classes_files
       rename_files
       rename_project_folder
     end
