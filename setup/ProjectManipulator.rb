@@ -23,7 +23,7 @@ module Pod
         "PROJECT_OWNER" => @configurator.user_name,
         "TODAYS_DATE" => @configurator.date,
         "TODAYS_YEAR" => @configurator.year,
-        "PROJECT" => @configurator.pod_name,
+        "PROJECT" => module_name,
         "CPD" => @prefix
       }
       replace_internal_project_settings
@@ -95,13 +95,16 @@ RUBY
       File.dirname @classes_path
     end
 
+    def module_name
+      @configurator.pod_name.gsub("_Category", "") 
+    end
+
     def rename_classes_files
       # change app file prefixes
       ["CTMediator+PROJECT.h", "CTMediator+PROJECT.m"].each do |file|
         before = classes_folder + "/" +file
         next unless File.exists? before
 
-        module_name = @configurator.pod_name.gsub("_Category", "")
         after = classes_folder + "/" + file.gsub("PROJECT", module_name)
         File.rename before, after
       end 
