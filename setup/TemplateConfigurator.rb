@@ -80,7 +80,7 @@ module Pod
         when :ios
           # framework = self.ask_with_answers("What language do you want to use?", ["Swift", "ObjC"]).to_sym
           puts "language use ObjC"
-          framework = "objc"
+          framework = :objc
           case framework
             when :swift
               ConfigureSwift.perform(configurator: self)
