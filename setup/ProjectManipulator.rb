@@ -100,8 +100,8 @@ RUBY
       ["CTMediator+PROJECT.h", "CTMediator+PROJECT.m"].each do |file|
         before = classes_folder + "/" +file
         next unless File.exists? before
-        
-        after = classes_folder + file.gsub("PROJECT", @configurator.pod_name)
+
+        after = classes_folder + "/" + file.gsub("PROJECT", @configurator.pod_name)
         File.rename before, after
       end 
     end
