@@ -73,7 +73,7 @@ module Pod
       Pod::ProjectManipulator.new({
         :configurator => @configurator,
         :xcodeproj_path => "templates/ios/Example/PROJECT.xcodeproj",
-        :classes_path => "Pod/Classes",
+        :classes_path => "Pod/Classes/.gitkeep",
         :platform => :ios,
         :remove_demo_project => (keep_demo == :no),
         :prefix => prefix

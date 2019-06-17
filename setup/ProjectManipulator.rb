@@ -92,7 +92,7 @@ RUBY
     end
 
     def classes_folder
-      @classes_path
+      File.dirname @classes_path
     end
 
     def rename_classes_files
@@ -144,7 +144,7 @@ RUBY
 
     def replace_internal_project_settings
       replace_internal_path(project_folder)
-      replace_internal_path(classes_path)
+      replace_internal_path(classes_folder)
     end
 
     def replace_internal_path(path)
