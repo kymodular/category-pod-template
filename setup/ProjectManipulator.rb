@@ -11,6 +11,7 @@ module Pod
 
     def initialize(options)
       @xcodeproj_path = options.fetch(:xcodeproj_path)
+      @classes_path = options.fetch(:classes_path)
       @configurator = options.fetch(:configurator)
       @platform = options.fetch(:platform)
       @remove_demo_target = options.fetch(:remove_demo_project)
@@ -31,7 +32,7 @@ module Pod
       add_podspec_metadata
       remove_demo_project if @remove_demo_target
       @project.save
-
+      rename_classes_files
       rename_files
       rename_project_folder
     end
@@ -90,6 +91,21 @@ RUBY
       File.dirname @xcodeproj_path
     end
 
+    def classes_folder
+      @classes_path
+    end
+
+    def rename_classes_files
+      # change app file prefixes
+      ["CTMediator+PROJECT.h", "CTMediator+PROJECT.m"].each do |file|
+        before = classes_folder + file
+        next unless File.exists? before
+
+        after = classes_folder + file.gsub("PROJECT", @configurator.pod_name)
+        File.rename before, after
+      end 
+    end
+
     def rename_files
       # shared schemes have project specific names
       scheme_path = project_folder + "/PROJECT.xcodeproj/xcshareddata/xcschemes/"
@@ -127,7 +143,12 @@ RUBY
     end
 
     def replace_internal_project_settings
-      Dir.glob(project_folder + "/**/**/**/**").each do |name|
+      replace_internal_path(project_folder)
+      replace_internal_path(classes_path)
+    end
+
+    def replace_internal_path(path)
+      Dir.glob(path + "/**/**/**/**").each do |name|
         next if Dir.exists? name
         text = File.read(name)
 

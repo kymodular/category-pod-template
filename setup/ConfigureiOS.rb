@@ -61,8 +61,8 @@ module Pod
       prefix = nil
 
       loop do
-        prefix = configurator.ask("What is your class prefix")
-
+        # prefix = configurator.ask("What is your class prefix")
+        prefix = ""
         if prefix.include?(' ')
           puts 'Your class prefix cannot contain spaces.'.red
         else
@@ -73,6 +73,7 @@ module Pod
       Pod::ProjectManipulator.new({
         :configurator => @configurator,
         :xcodeproj_path => "templates/ios/Example/PROJECT.xcodeproj",
+        :classes_path => "Pod/Classes",
         :platform => :ios,
         :remove_demo_project => (keep_demo == :no),
         :prefix => prefix
@@ -80,7 +81,7 @@ module Pod
 
       # There has to be a single file in the Classes dir
       # or a framework won't be created, which is now default
-      `touch Pod/Classes/ReplaceMe.m`
+      # `touch Pod/Classes/ReplaceMe.m`
 
       `mv ./templates/ios/* ./`
 
