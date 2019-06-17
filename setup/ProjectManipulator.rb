@@ -101,7 +101,8 @@ RUBY
         before = classes_folder + "/" +file
         next unless File.exists? before
 
-        after = classes_folder + "/" + file.gsub("PROJECT", @configurator.pod_name)
+        module_name = @configurator.pod_name.gsub("_Category")
+        after = classes_folder + "/" + file.gsub("PROJECT", module_name)
         File.rename before, after
       end 
     end
