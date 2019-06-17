@@ -98,9 +98,13 @@ RUBY
     def rename_classes_files
       # change app file prefixes
       ["CTMediator+PROJECT.h", "CTMediator+PROJECT.m"].each do |file|
+        
+        puts file
         before = classes_folder + file
+        puts before
         next unless File.exists? before
 
+        puts "---"
         after = classes_folder + file.gsub("PROJECT", @configurator.pod_name)
         File.rename before, after
       end 
