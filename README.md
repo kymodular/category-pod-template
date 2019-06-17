@@ -1,4 +1,4 @@
-pod-template
+category-pod-template
 ============
 
 An opinionated template for creating a Pod with the following features:
@@ -24,5 +24,3 @@ It is open to communal input, but adding new features, or new ideas are probably
 ## Requirements:
 
 - CocoaPods 1.0.0+
-# category-pod-template
-# category-pod-template
