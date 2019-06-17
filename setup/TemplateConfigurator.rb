@@ -89,7 +89,8 @@ module Pod
               ConfigureIOS.perform(configurator: self)
           end
       end
-
+      puts "language use ----"
+      
       replace_variables_in_files
       clean_template_files
       rename_template_files
