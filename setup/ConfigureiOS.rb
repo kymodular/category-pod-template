@@ -15,11 +15,11 @@ module Pod
 
       # keep_demo = configurator.ask_with_answers("Would you like to include a demo application with your library", ["Yes", "No"]).to_sym
       puts "include a demo application with your library"
-      keep_demo = "Yes" 
+      keep_demo = "yes" 
 
       # framework = configurator.ask_with_answers("Which testing frameworks will you use", ["Specta", "Kiwi", "None"]).to_sym
       puts "testing frameworks will you use none"
-      framework = "None"
+      framework = "none"
       case framework
         when :specta
           configurator.add_pod_to_podfile "Specta"
@@ -41,7 +41,7 @@ module Pod
 
       # snapshots = configurator.ask_with_answers("Would you like to do view based testing", ["Yes", "No"]).to_sym
       puts "Would you like to do view based testing: No"
-      snapshots = "No" 
+      snapshots = "no" 
       case snapshots
         when :yes
           configurator.add_pod_to_podfile "FBSnapshotTestCase"
