@@ -72,7 +72,7 @@ module Pod
 
       # platform = self.ask_with_answers("What platform do you want to use?", ["iOS", "macOS"]).to_sym
       puts "platform use iOS"
-      platform = "ios"
+      platform = :ios
 
       case platform
         when :macos
@@ -89,8 +89,7 @@ module Pod
               ConfigureIOS.perform(configurator: self)
           end
       end
-      puts "language use ----"
-      
+
       replace_variables_in_files
       clean_template_files
       rename_template_files
