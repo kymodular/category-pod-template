@@ -23,7 +23,8 @@ module Pod
         "PROJECT_OWNER" => @configurator.user_name,
         "TODAYS_DATE" => @configurator.date,
         "TODAYS_YEAR" => @configurator.year,
-        "PROJECT" => module_name,
+        "PROJECT" => @configurator.pod_name,
+        "MODULE_NAME" => module_name,
         "CPD" => @prefix
       }
       replace_internal_project_settings

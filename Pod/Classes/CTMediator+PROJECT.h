@@ -1,5 +1,5 @@
 //
-//  CTMediator+PROJECT.h
+//  CTMediator+MODULE_NAME.h
 //  CTMediator
 //
 //  Created by PROJECT_OWNER on TODAYS_DATE.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CTMediator (PROJECT)
+@interface CTMediator (MODULE_NAME)
 
 - (UIViewController *)B_viewControllerWithContentText:(NSString *)contentText;
     
