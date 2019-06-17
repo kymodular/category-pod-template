@@ -29,7 +29,7 @@ module Pod
       replace_internal_project_settings
       rename_classes_files
 
-      @project = Xcodeproj::Project.open(@xcodeproj_path)
+      # @project = Xcodeproj::Project.open(@xcodeproj_path)
       add_podspec_metadata
       remove_demo_project if @remove_demo_target
       @project.save
