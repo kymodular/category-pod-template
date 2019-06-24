@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CTMediator (MODULE_NAME)
 
-- (UIViewController *)B_viewControllerWithContentText:(NSString *)contentText;
+- (UIViewController *)MODULE_NAME_viewControllerWithContentText:(NSString *)contentText;
     
 @end
 

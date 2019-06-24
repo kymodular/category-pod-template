@@ -10,7 +10,7 @@
 
 @implementation CTMediator (MODULE_NAME)
 
-- (UIViewController *)B_viewControllerWithContentText:(NSString *)contentText
+- (UIViewController *)MODULE_NAME_viewControllerWithContentText:(NSString *)contentText
 {
     /*
      MODULE_NAME_ViewController *viewController = [[MODULE_NAME_ViewController alloc] initWithContentText:@"hello, world!"];
